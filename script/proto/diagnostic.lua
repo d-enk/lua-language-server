@@ -84,6 +84,12 @@ m.register {
     status   = 'Opened',
 }
 
+m.register {'nil-not-boolean'} {
+    group    = 'type-check',
+    severity = 'Warning',
+    status   = 'Opened',
+}
+
 m.register {
     'duplicate-doc-alias',
     'undefined-doc-class',

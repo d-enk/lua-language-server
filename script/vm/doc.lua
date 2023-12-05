@@ -416,7 +416,13 @@ function vm.isDiagDisabledAt(uri, position, name, err)
         return false
     end
     if not cache.diagnosticRanges then
-        cache.diagnosticRanges = {}
+        cache.diagnosticRanges = {
+            {
+                mode = 'disable',
+                names = { ['nil-not-boolean'] = true },
+                row = 0,
+            },
+        }
         for _, doc in ipairs(status.ast.docs) do
             if doc.type == 'doc.diagnostic' then
                 makeDiagRange(uri, doc, cache.diagnosticRanges)
